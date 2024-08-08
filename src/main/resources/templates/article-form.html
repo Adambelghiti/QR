@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Article Form</title>
+    <title>Formulaire Article</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,26 +39,42 @@
         <input type="hidden" th:field="*{serialNumber}" />
         <label>Name:</label>
         <input type="text" th:field="*{nom}" required/>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="nom" th:checked="${includeFields != null and includeFields.contains('nom')}"/>
         <label>Length:</label>
         <input type="text" th:field="*{longueur}" required/>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="longueur" th:checked="${includeFields != null and includeFields.contains('longueur')}"/>
         <label>Width:</label>
         <input type="text" th:field="*{largeur}" required/>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="largeur" th:checked="${includeFields != null and includeFields.contains('largeur')}"/>
         <label>Height:</label>
         <input type="text" th:field="*{hauteur}" required/>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="hauteur" th:checked="${includeFields != null and includeFields.contains('hauteur')}"/>
         <label>Category:</label>
         <input type="text" th:field="*{categorie}" required/>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="categorie" th:checked="${includeFields != null and includeFields.contains('categorie')}"/>
         <label>Warehouse:</label>
         <select th:field="*{entrepot.id}">
             <option th:each="entrepot : ${entrepots}" th:value="${entrepot.id}" th:text="${entrepot.nom}">Entrepot</option>
         </select>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="entrepot" th:checked="${includeFields != null and includeFields.contains('entrepot')}"/>
         <label>Manufacturer:</label>
         <select th:field="*{fabricant.id}">
             <option th:each="fabricant : ${fabricants}" th:value="${fabricant.id}" th:text="${fabricant.name}">Fabricant</option>
         </select>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="fabricant" th:checked="${includeFields != null and includeFields.contains('fabricant')}"/>
         <label>Supplier:</label>
         <select th:field="*{fournisseur.id}">
             <option th:each="fournisseur : ${fournisseurs}" th:value="${fournisseur.id}" th:text="${fournisseur.name}">Fournisseur</option>
         </select>
+        <label>Include in QR:</label>
+        <input type="checkbox" name="includeFields" value="fournisseur" th:checked="${includeFields != null and includeFields.contains('fournisseur')}"/>
         <button type="submit">Save</button>
     </form>
 </div>

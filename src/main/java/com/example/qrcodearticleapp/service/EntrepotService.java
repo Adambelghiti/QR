@@ -28,4 +28,11 @@ public class EntrepotService {
     public void deleteEntrepot(Long id) {
         entrepotRepository.deleteById(id);
     }
+  /*  public Entrepot getEntrepotByName(String nom) {
+        List<Entrepot> entrepots = getAllEntrepots();
+        return entrepotRepository.findByNom(nom, entrepots);
+    }*/
+  public Entrepot getEntrepotByName(String nom){
+      return entrepotRepository.findByNom(nom);
+  }
 }

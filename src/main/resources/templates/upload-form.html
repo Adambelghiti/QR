@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulaire Fabricant</title>
+    <title>Upload QR Code</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            text-align: center;
+            padding-top: 50px;
         }
         .form-container {
-            background-color: #fff;
-            padding: 20px 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 50%;
-            max-width: 500px;
-            text-align: center;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            margin-bottom: 20px;
+            text-align: center;
             color: #333;
         }
         label {
             display: block;
             margin-top: 10px;
-            margin-bottom: 5px;
             font-weight: bold;
-            text-align: left;
         }
-        input {
+        input[type="file"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-top: 5px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -60,6 +56,8 @@
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
+            width: 100%;
+            text-align: center;
         }
         .back-button:hover {
             background-color: #555;
@@ -68,14 +66,13 @@
 </head>
 <body>
 <div class="form-container">
-    <h1 th:text="${fabricant.id == null ? 'Create New Fabricant' : 'Edit Fabricant'}"></h1>
-    <form th:action="@{/fabricants}" th:object="${fabricant}" method="post">
-        <input type="hidden" th:field="*{id}" />
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" required/>
-        <button type="submit">Save</button>
+    <h1>Upload QR Code</h1>
+    <form th:action="@{/articles/upload}" method="post" enctype="multipart/form-data">
+        <label for="file">Select QR Code File:</label>
+        <input type="file" id="file" name="file" required/>
+        <button type="submit">Upload</button>
     </form>
-    <a th:href="@{/fabricants}" class="back-button">Précédent</a>
+    <a th:href="@{/articles}" class="back-button">Précédent</a>
 </div>
 </body>
 </html>

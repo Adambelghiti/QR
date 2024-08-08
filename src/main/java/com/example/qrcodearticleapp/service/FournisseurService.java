@@ -28,4 +28,12 @@ public class FournisseurService {
     public void deleteFournisseur(Long id) {
         fournisseurRepository.deleteById(id);
     }
+
+    /*public Fournisseur getFournisseurByName(String name) {
+        List<Fournisseur> fournisseurs = getAllFournisseurs();
+        return fournisseurRepository.findByName(name,fournisseurs);
+    }*/
+    public Fournisseur getFournisseurByName(String name){
+        return fournisseurRepository.findByName(name);
+    }
 }
